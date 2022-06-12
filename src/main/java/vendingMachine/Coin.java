@@ -19,6 +19,16 @@ public class Coin {
         this.value = value;
     }
 
+    public Coin printName() {
+        System.out.println(this.getName());
+        return this;
+    }
+
+    public Coin printValue() {
+        System.out.println(this.getValue());
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

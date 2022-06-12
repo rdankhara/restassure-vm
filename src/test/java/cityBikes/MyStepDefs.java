@@ -8,13 +8,10 @@ public class MyStepDefs
 {
     CityBikeTests cityBikeTests = new CityBikeTests();
 
-
-    @Given("user send ApI request")
+    @Given("^user send ApI request")
     public void user_send_ap_i_request()
     {
         System.out.println("setup");
-
-
     }
 
     @When("user receive success response")
@@ -44,8 +41,4 @@ public class MyStepDefs
         //System.out.println("not verify the location");
         cityBikeTests.verify_that_top_level_fields_can_be_filtered_by_queryparms();
     }
-
-
-
-
 }

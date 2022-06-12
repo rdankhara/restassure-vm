@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="tests" />
         <module name="java_tests-master_issue_2" />
         <module name="java_tests-master_issue_2_BDD" />
-        <module name="tests" />
+        <module name="Vending-Machine-and-City-Location" />
       </profile>
     </annotationProcessing>
   </component>

@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.PriorityQueue;
 
 import static io.restassured.RestAssured.given;
 
@@ -28,14 +27,15 @@ public class CityBikeTests {
        // RestAssured.baseURI = loadProperty.getProperty("url");
     //}
 
-    //@Test
+    @Test
     public void baseUriReturnsSuccess(){
 
         Response response = given()
                 .when()
                 .get()
                 .then()
-                .extract().response();
+                .extract()
+                .response();
 
         Assert.assertThat(response.getStatusCode(), Is.is(200));
     }
@@ -69,11 +69,11 @@ public class CityBikeTests {
                 .get(loadProperty.getProperty("invalidID"))
                 .then()
                 .extract().response();
-
+        System.out.println("invoked");
         Assert.assertThat(response.getStatusCode(), Is.is(404));
     }
 
-    //@Test
+//    @Test
     public void verify_that_top_level_fields_can_be_filtered_by_queryparms() {
         Response response = given()
                 .queryParam("fields", loadProperty.getProperty("requireField"))
