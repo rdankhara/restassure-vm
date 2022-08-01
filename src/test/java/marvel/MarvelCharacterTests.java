@@ -13,6 +13,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.core.IsNot.not;
 
 public class MarvelCharacterTests {
     @BeforeClass
@@ -49,6 +50,17 @@ public class MarvelCharacterTests {
                 .body(jsonPathExpression, hasKey("comics"))
                 .body(jsonPathExpression, hasKey("name"));
 
+    }
+
+    @Test
+    public void verify_character_properties_Negative(){
+
+        ValidatableResponse response = getResponse();
+
+        String jsonPathExpression = "data.results[0]";
+
+        response.assertThat()
+                .body(jsonPathExpression, not(hasKey("comicsAbcd")));
     }
 
     @Test
