@@ -12,20 +12,11 @@ import org.junit.Test;
 import static io.restassured.RestAssured.given;
 
 public class CityBikeTests {
-    public static LoadProperty loadProperty = new LoadProperty();
-
-    //public static String location = loadProperty.getProperty("location");
-    //public static String invalidID = loadProperty.getProperty("InvalidID");
-    //public static String requireField = loadProperty.getProperty("RequireField");
     @BeforeClass
     public static void Setup()
     {
        RestAssured.baseURI = "http://api.citybik.es/v2/networks";
     }
-    //public static void Setup()
-    //{
-       // RestAssured.baseURI = loadProperty.getProperty("url");
-    //}
 
     @Test
     public void baseUriReturnsSuccess(){
@@ -45,7 +36,7 @@ public class CityBikeTests {
 
         Response response = given()
                 .when()
-                .get(loadProperty.getProperty("location"))
+                .get("visa-frankfurt")
                 .then()
                 .extract().response();
 
@@ -66,7 +57,7 @@ public class CityBikeTests {
 
         Response response = given()
                 .when()
-                .get(loadProperty.getProperty("invalidID"))
+                .get("invalidID")
                 .then()
                 .extract().response();
         System.out.println("invoked");
@@ -76,7 +67,7 @@ public class CityBikeTests {
 //    @Test
     public void verify_that_top_level_fields_can_be_filtered_by_queryparms() {
         Response response = given()
-                .queryParam("fields", loadProperty.getProperty("requireField"))
+                .queryParam("fields", "id,href")
                 .when()
                 .get()
                 .then()
